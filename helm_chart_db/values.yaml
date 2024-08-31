@@ -1,0 +1,20 @@
+# Default values for helm_chart_app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+sqlalchemyTrackModifications: false
+
+postgresDB: db_hw4
+
+databaseURL: cG9zdGdyZXNxbDovL3VzZXI6cGFzc3dvcmRAcG9zdGdyZXM6NTQzMi9kYl9odzQ=  # base64 encoded "postgresql://user:password@postgres:5432/db_hw4"
+postgresUser: dXNlcg==             # Закодировано "user" в base64
+postgresPassword: cGFzc3dvcmQ=     # Закодировано "password" в base64
+
+#image:
+#  initDB: docker.io/puzle/app_init_db:v1
+#  appCRUD: docker.io/puzle/app_crud:v3
+
+#port:
+#  appCRUD: 8000
+
+#ingressHost: arch.homework

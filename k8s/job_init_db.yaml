@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-init-db  
+spec:
+  template:
+    spec:
+      containers:
+      - name: init-db
+        image: docker.io/puzle/app_init_db:v1
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: secret-db
+              key: DATABASE_URL
+        - name: SQLALCHEMY_TRACK_MODIFICATIONS
+          valueFrom:
+            configMapKeyRef:
+              name: config-app-crud
+              key: SQLALCHEMY_TRACK_MODIFICATIONS
+      restartPolicy: Never
+  backoffLimit: 4
